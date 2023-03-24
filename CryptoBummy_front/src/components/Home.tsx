@@ -5,14 +5,14 @@ function Home() {
   return (
     <Wrap>
       <StyledDescription>
-        <StyledTitle>CryptoBummy?</StyledTitle>
+        <StyledTitle>CryptoBummy</StyledTitle>
         <StyledDescript>
           "Cryptokitty"를 클론코딩한 블록체인 기반 게임입니다. 사용자는 자신만의
           버미를 만들 수 있습니다. 또한, ‘Cheering’을 통하여 새로운 버미를 만들
           수도 있습니다.
         </StyledDescript>
       </StyledDescription>
-      <img src={Home1} alt="home1" />
+      <StyledHomeImg src={Home1} alt="home1" />
     </Wrap>
   );
 }
@@ -47,6 +47,9 @@ const StyledDescript = styled.p`
   line-height: 150%;
   letter-spacing: -0.04em;
   color: #000000;
+`;
+const StyledHomeImg = styled.img`
+  width: 500px;
 `;
 
 export default Home;

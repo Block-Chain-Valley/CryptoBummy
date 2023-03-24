@@ -35,7 +35,7 @@ const Wrap = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 100vh;
+  width: 100%;
   height: 50px;
 `;
 

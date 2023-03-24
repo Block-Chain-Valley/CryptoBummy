@@ -5,14 +5,11 @@ import Invite1 from "../../public/invite1.png";
 function Invite() {
   return (
     <Wrap>
-      <StyledDescription>
-        <h1>What is CryptoBummy?</h1>
-        <p>
-          CryptoBummy is a collection of 10,000 unique NFTs on the Ethereum
-          blockchain. Each CryptoBummy is a unique combination of 5 traits:
-        </p>
-      </StyledDescription>
       <img src={Invite1} alt="home1" />
+      <StyledDescription>
+        <StyledTitle>Invite Other Bummy</StyledTitle>
+        <p>응원에 성공했다면 다른 버미를 새로 초대할 수 있습니다.</p>
+      </StyledDescription>
     </Wrap>
   );
 }
@@ -31,5 +28,12 @@ const StyledDescription = styled.div`
   align-items: center;
   width: 100vh;
   height: 50px;
+`;
+const StyledTitle = styled.h1`
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
+  color: #000000;
 `;
 export default Invite;

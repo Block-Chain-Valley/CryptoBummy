@@ -6,11 +6,9 @@ function Cheering() {
   return (
     <Wrap>
       <StyledDescription>
-        <h1>What is CryptoBummy?</h1>
-        <p>
-          CryptoBummy is a collection of 10,000 unique NFTs on the Ethereum
-          blockchain. Each CryptoBummy is a unique combination of 5 traits:
-        </p>
+        <StyledTitle>Cheering</StyledTitle>
+        <p>버미를 응원하면 새로운 버미를 만들 수 있습니다.</p>
+        <StyledCheerButton>버미 응원하기</StyledCheerButton>
       </StyledDescription>
       <img src={Cheering1} alt="home1" />
     </Wrap>
@@ -32,5 +30,15 @@ const StyledDescription = styled.div`
   width: 100vh;
   height: 50px;
 `;
-
+const StyledTitle = styled.h1`
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 120%;
+  letter-spacing: -0.04em;
+  color: #000000;
+`;
+const StyledCheerButton = styled.button`
+  width: 300px;
+  height: 50px;
+`;
 export default Cheering;
