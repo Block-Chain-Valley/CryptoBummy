@@ -17,7 +17,7 @@ function Invite() {
           응원하기
         </StyledInviteButton>
 
-        <div>새로운 버미!</div>
+        <div>새로운 버미</div>
         <StyledBummy>
           <StyledBummyImg src={Home1} alt="home1" />
         </StyledBummy>
