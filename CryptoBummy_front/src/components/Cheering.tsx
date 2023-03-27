@@ -3,12 +3,17 @@ import styled from "styled-components";
 import Cheering1 from "../../public/cheering1.png";
 
 function Cheering() {
+  function cheer() {
+    alert("cheer");
+  }
   return (
     <Wrap>
       <StyledDescription>
         <StyledTitle>Cheering</StyledTitle>
         <p>버미를 응원하면 새로운 버미를 만들 수 있습니다.</p>
-        <StyledCheerButton>버미 응원하기</StyledCheerButton>
+        <StyledCheerButton onClick={() => cheer()}>
+          버미 응원하기
+        </StyledCheerButton>
       </StyledDescription>
       <img src={Cheering1} alt="home1" />
     </Wrap>

@@ -3,12 +3,18 @@ import styled from "styled-components";
 import Invite1 from "../../public/invite1.png";
 
 function Invite() {
+  function invite() {
+    alert("invite");
+  }
   return (
     <Wrap>
       <img src={Invite1} alt="home1" />
       <StyledDescription>
         <StyledTitle>Invite Other Bummy</StyledTitle>
         <p>응원에 성공했다면 다른 버미를 새로 초대할 수 있습니다.</p>
+        <StyledInviteButton onClick={() => invite()}>
+          응원하기
+        </StyledInviteButton>
       </StyledDescription>
     </Wrap>
   );
@@ -35,5 +41,9 @@ const StyledTitle = styled.h1`
   line-height: 120%;
   letter-spacing: -0.04em;
   color: #000000;
+`;
+const StyledInviteButton = styled.button`
+  width: 300px;
+  height: 50px;
 `;
 export default Invite;

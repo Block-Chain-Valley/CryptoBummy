@@ -4,12 +4,17 @@ import Minting1 from "../../public/minting1.png";
 import Home1 from "../../public/home1.png";
 
 function Minting() {
+  function mint() {
+    alert("mint");
+  }
   return (
     <Wrap>
       <img src={Minting1} alt="home1" />
       <StyledDescription>
         <StyledTitle>Minting</StyledTitle>
-        <StyledMintButton>버미 민팅하기</StyledMintButton>
+        <StyledMintButton onClick={() => mint()}>
+          버미 민팅하기
+        </StyledMintButton>
         <StyledBummyBox>
           <StyledBummy>
             <StyledBummyImg src={Home1} alt="home1" />
