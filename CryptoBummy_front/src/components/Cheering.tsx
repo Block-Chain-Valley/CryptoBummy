@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Cheering1 from "../../public/cheering1.png";
-
+import Home1 from "../../public/home1.png";
 function Cheering() {
   function cheer() {
     alert("cheer");
@@ -14,6 +14,16 @@ function Cheering() {
         <StyledCheerButton onClick={() => cheer()}>
           버미 응원하기
         </StyledCheerButton>
+
+        <CheeringBox>
+          <StyledBummy>
+            <StyledBummyImg src={Home1} alt="home1" />
+          </StyledBummy>
+          <div>+</div>
+          <StyledBummy>
+            <StyledBummyImg src={Home1} alt="home1" />
+          </StyledBummy>
+        </CheeringBox>
       </StyledDescription>
       <img src={Cheering1} alt="home1" />
     </Wrap>
@@ -42,8 +52,24 @@ const StyledTitle = styled.h1`
   letter-spacing: -0.04em;
   color: #000000;
 `;
+const CheeringBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
 const StyledCheerButton = styled.button`
   width: 300px;
   height: 50px;
+`;
+const StyledBummy = styled.div`
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+`;
+const StyledBummyImg = styled.img`
+  width: 100px;
+  height: 100px;
 `;
 export default Cheering;

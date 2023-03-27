@@ -19,6 +19,12 @@ function Minting() {
           <StyledBummy>
             <StyledBummyImg src={Home1} alt="home1" />
           </StyledBummy>
+          <StyledBummy>
+            <StyledBummyImg src={Home1} alt="home1" />
+          </StyledBummy>
+          <StyledBummy>
+            <StyledBummyImg src={Home1} alt="home1" />
+          </StyledBummy>
         </StyledBummyBox>
       </StyledDescription>
     </Wrap>
@@ -56,16 +62,18 @@ const StyledMintButton = styled.button`
 `;
 
 const StyledBummyBox = styled.div`
-  width: 300px;
+  width: 100%;
   height: 300px;
   border: 1px solid black;
+  display: flex;
   margin-top: 20px;
 `;
 
 const StyledBummy = styled.div`
   width: 100px;
   height: 100px;
-  border: 1px solid black;
+
+  display: flex;
 `;
 const StyledBummyImg = styled.img`
   width: 100px;

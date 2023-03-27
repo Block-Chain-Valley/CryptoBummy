@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Invite1 from "../../public/invite1.png";
+import Home1 from "../../public/home1.png";
 
 function Invite() {
   function invite() {
@@ -15,6 +16,11 @@ function Invite() {
         <StyledInviteButton onClick={() => invite()}>
           응원하기
         </StyledInviteButton>
+
+        <div>새로운 버미!</div>
+        <StyledBummy>
+          <StyledBummyImg src={Home1} alt="home1" />
+        </StyledBummy>
       </StyledDescription>
     </Wrap>
   );
@@ -45,5 +51,16 @@ const StyledTitle = styled.h1`
 const StyledInviteButton = styled.button`
   width: 300px;
   height: 50px;
+`;
+
+const StyledBummy = styled.div`
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+`;
+const StyledBummyImg = styled.img`
+  width: 100px;
+  height: 100px;
 `;
 export default Invite;
