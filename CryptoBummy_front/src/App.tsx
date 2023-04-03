@@ -7,6 +7,8 @@ import Minting from "./components/Minting";
 import NavBar from "./components/NavBar";
 import { WagmiConfig, createClient } from "wagmi";
 import { getDefaultProvider } from "ethers";
+import Home2 from "./components/Home2";
+import UserHome from "./components/UserHome";
 
 const client = createClient({
   autoConnect: true,
@@ -20,7 +22,11 @@ function App() {
         <div className="App">
           <NavBar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />}>
+              <Route path="Home2" element={<Home2 />}>
+                <Route path=":userId" element={<UserHome />} />
+              </Route>
+            </Route>
             <Route path="/minting" element={<Minting />} />
             <Route path="/invite" element={<Invite />} />
             <Route path="/cheering" element={<Cheering />} />

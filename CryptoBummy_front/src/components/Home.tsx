@@ -1,7 +1,28 @@
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { useAccount } from "wagmi";
 import Home1 from "../../public/home1.png";
+import getDataAPI from "../api/getData";
+import getData1 from "../api/getData1";
+import { getEtherData } from "../contract/getEtherData";
 function Home() {
+  const { address, isConnected } = useAccount();
+
+  function getDatabyPromise() {
+    getData1().then((res) => {
+      console.log(res);
+    });
+  }
+
+  async function getData() {
+    const res = await getDataAPI.getPosts();
+    console.log(res);
+  }
+  function getEther() {
+    getEtherData(address!);
+  }
+
   return (
     <Wrap>
       <StyledDescription>
@@ -11,6 +32,14 @@ function Home() {
           버미를 만들 수 있습니다. 또한, ‘Cheering’을 통하여 새로운 버미를 만들
           수도 있습니다.
         </StyledDescript>
+
+        <button onClick={() => getDatabyPromise()}>getDatabyPromise</button>
+        <button onClick={() => getData()}>getData</button>
+        <button onClick={() => getEther()}>getEther</button>
+
+        <Link to="/Home2">Home2</Link>
+
+        <Outlet />
       </StyledDescription>
       <StyledHomeImg src={Home1} alt="home1" />
     </Wrap>
