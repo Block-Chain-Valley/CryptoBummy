@@ -1,19 +1,34 @@
 import { ethers } from "ethers";
 import { JsonRpcProvider } from "@ethersproject/providers";
-export const getEtherData = async (_wallet: string) => {
+import BummyCoreABI from "../abi/BummyCore.json";
+import { BummyCore } from "../typechain/BummyCore";
+
+export const getEtherData = async (signer: any) => {
   // 컨트랙트 ABI와 컨트랙트 주소입니다.
-  const abi = [
-    // 토큰 컨트랙트 ABI
-    "function balanceOf(address owner) view returns (uint256)",
-  ];
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const abi = BummyCoreABI;
+  console.log(abi);
 
-  // 이더리움 블록체인에 연결합니다.
+  const contractAddress = "0x82356e2dEa4F5b5CBF3d8A2511a7F4BF9631602d";
 
-  const provider = new JsonRpcProvider((window.ethereum as any).provider);
+  const provider = new JsonRpcProvider(
+    "https://public-node-api.klaytnapi.com/v1/baobab"
+  );
 
-  const walletAddress = _wallet; // 지갑 주소
-  const contract = new ethers.Contract(contractAddress, abi, provider);
-  const balance = await contract.balanceOf(walletAddress); // balanceOf() 함수 호출
-  console.log("Balance:", balance.toString());
+  await provider.getBlockNumber().then(console.log);
+
+  const contract = new ethers.Contract(
+    contractAddress,
+    abi,
+    signer
+  ) as BummyCore;
+
+  try {
+    // 스마트 컨트랙트 함수를 호출합니다.
+    const result = await contract.createFirstGen0Bummy();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
 };
+
+//https://public-node-api.klaytnapi.com/v1/baobab

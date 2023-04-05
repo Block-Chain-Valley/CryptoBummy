@@ -5,14 +5,54 @@ import Home from "./components/Home";
 import Invite from "./components/Invite";
 import Minting from "./components/Minting";
 import NavBar from "./components/NavBar";
-import { WagmiConfig, createClient } from "wagmi";
+import { WagmiConfig, createClient, configureChains, mainnet } from "wagmi";
+
+import { publicProvider } from "wagmi/providers/public";
+
 import { getDefaultProvider } from "ethers";
 import Home2 from "./components/Home2";
 import UserHome from "./components/UserHome";
 
+const { chains, provider, webSocketProvider } = configureChains(
+  [
+    {
+      /** ID in number form */
+      id: 1001,
+      /** Human-readable name */
+      name: "baobab",
+      /** Internal network name */
+      network: "baobab",
+      /** Currency used by chain */
+      nativeCurrency: {
+        name: "KLAYTN",
+        /** 2-6 characters long */
+        symbol: "KLAY",
+        decimals: 18,
+      },
+      /** Collection of RPC endpoints */
+      rpcUrls: {
+        default: {
+          http: ["https://public-node-api.klaytnapi.com/v1/baobab"],
+        },
+        public: {
+          http: ["https://public-node-api.klaytnapi.com/v1/baobab"],
+        },
+      },
+      /** Collection of block explorers */
+
+      /** Collection of contracts */
+
+      /** Flag for test networks */
+      testnet: true,
+    },
+  ],
+  [publicProvider()]
+);
+
 const client = createClient({
   autoConnect: true,
-  provider: getDefaultProvider(),
+  provider,
+  webSocketProvider,
 });
 
 function App() {

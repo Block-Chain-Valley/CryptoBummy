@@ -7,6 +7,7 @@ function NavBar() {
   const { address, isConnected } = useAccount();
   const { connect } = useConnect({
     connector: new InjectedConnector(),
+    chainId: 1001,
   });
   const { disconnect } = useDisconnect();
 

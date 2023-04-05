@@ -1,13 +1,14 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { useAccount } from "wagmi";
+import { useAccount, useSigner } from "wagmi";
 import Home1 from "../../public/home1.png";
 import getDataAPI from "../api/getData";
 import getData1 from "../api/getData1";
 import { getEtherData } from "../contract/getEtherData";
 function Home() {
   const { address, isConnected } = useAccount();
+  const { data: signer } = useSigner();
 
   function getDatabyPromise() {
     getData1().then((res) => {
@@ -19,8 +20,10 @@ function Home() {
     const res = await getDataAPI.getPosts();
     console.log(res);
   }
-  function getEther() {
-    getEtherData(address!);
+  async function getEther() {
+    console.log(signer);
+    const res = await getEtherData(signer);
+    console.log(res);
   }
 
   return (
