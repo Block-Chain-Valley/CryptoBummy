@@ -41,6 +41,7 @@ function Home() {
 
         <Outlet />
       </StyledDescription>
+
       <StyledHomeImg src={Home1} alt="home1" />
     </Wrap>
   );
