@@ -1,14 +1,14 @@
+import { ethers } from "ethers";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { useAccount, useSigner } from "wagmi";
+import { useAccount } from "wagmi";
 import Home1 from "../../public/home1.png";
 import getDataAPI from "../api/getData";
 import getData1 from "../api/getData1";
 import { getEtherData } from "../contract/getEtherData";
 function Home() {
   const { address, isConnected } = useAccount();
-  const { data: signer } = useSigner();
 
   function getDatabyPromise() {
     getData1().then((res) => {
@@ -21,6 +21,11 @@ function Home() {
     console.log(res);
   }
   async function getEther() {
+    // Metamask에서 현재 연결된 계정의 Provider를 가져옵니다.
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    // 현재 연결된 계정의 Signer를 가져옵니다.
+    const signer = provider.getSigner();
     console.log(signer);
     const res = await getEtherData(signer);
     console.log(res);
