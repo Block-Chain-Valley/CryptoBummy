@@ -38,8 +38,8 @@ export const baobab = {
 function NavBar() {
   const { address, isConnected } = useAccount();
   const { connect } = useConnect({
-    //connector: new InjectedConnector(),
-    chainId: baobab.id,
+    connector: new InjectedConnector(),
+    //chainId: baobab.id,
   });
   const { disconnect } = useDisconnect();
   /*
