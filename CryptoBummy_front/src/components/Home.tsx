@@ -22,13 +22,15 @@ function Home() {
   }
   async function getEther() {
     // Metamask에서 현재 연결된 계정의 Provider를 가져옵니다.
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    if (typeof window.ethereum !== "undefined") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-    // 현재 연결된 계정의 Signer를 가져옵니다.
-    const signer = provider.getSigner();
-    console.log(signer);
-    const res = await getEtherData(signer);
-    console.log(res);
+      // 현재 연결된 계정의 Signer를 가져옵니다.
+      const signer = provider.getSigner();
+      console.log(signer);
+      const res = await getEtherData(signer);
+      console.log(res);
+    }
   }
 
   return (

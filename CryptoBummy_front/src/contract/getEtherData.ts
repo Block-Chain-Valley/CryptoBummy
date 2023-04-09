@@ -9,11 +9,11 @@ export const getEtherData = async (signer: any) => {
 
   const contractAddress = "0x82356e2dEa4F5b5CBF3d8A2511a7F4BF9631602d";
 
-  const provider = new JsonRpcProvider(
-    "https://public-node-api.klaytnapi.com/v1/baobab"
-  );
+  // const provider = new JsonRpcProvider(
+  //   "https://public-node-api.klaytnapi.com/v1/baobab"
+  // );
 
-  await provider.getBlockNumber().then(console.log);
+  //await provider.getBlockNumber().then(console.log);
 
   const contract = new ethers.Contract(
     contractAddress,

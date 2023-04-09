@@ -16,7 +16,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "styled-components": "^5.3.9",
-    "wagmi": "^0.12.6"
+    "wagmi": "^0.12.10"
   },
   "devDependencies": {
     "@typechain/ethers-v5": "^10.2.0",
