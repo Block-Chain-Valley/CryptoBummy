@@ -24,7 +24,8 @@ export const getEtherData = async (signer: any) => {
   try {
     // 스마트 컨트랙트 함수를 호출합니다.
     const result = await contract.createFirstGen0Bummy();
-    console.log(result);
+    console.log(contract);
+    return result;
   } catch (error) {
     console.error(error);
   }
